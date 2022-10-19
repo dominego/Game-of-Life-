@@ -88,9 +88,9 @@ class Grid:
             gridTot[M - 1, 0] = ON
         self.grid = gridTot
 
-    # Returns the same grid with a random generated MxM subcell with top-left corner in (i,j)
-    # if the subcell should be put ouside the grid, the initial grid is not changed
-    def addSubcell(self, i, j, M):
+    # Returns the same grid with a random generated MxM subgrid with top-left corner in (i,j)
+    # if the subgrid should be put ouside the grid, the initial grid is not changed
+    def addSubGrid(self, i, j, M):
         if (i+M) < self.size and (j+M) < self.size and i>0 and j>0:
             subcell = np.random.choice(
                 self.vals, M * M, p=[self.denGeneration, 1 - self.denGeneration]
