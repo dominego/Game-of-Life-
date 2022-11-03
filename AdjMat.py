@@ -8,7 +8,7 @@ class AdjMat:
         l=6,
         conf=[],
         Mat=[],
-        result=1,
+        result=0,
     ):
         def SquaredGridAdjMat(self):
             Mat = np.zeros((self.l * self.l, self.l * self.l))
@@ -35,14 +35,14 @@ class AdjMat:
 
         def InitializeRandomConfiguration(self):
             for i in range(self.l * self.l):
-                self.conf.append(random.randint(0, 1))
+                self.conf.append(random.randint(1, -1))
         
         def ArbitraryFunction(self):
             if self.Mat!=[] and self.conf!=[]:
                 for i in range(self.l * self.l):
                     for j in range(self.l * self.l):
                         if self.Mat[i, j] != 0:
-                            self.result *= function(self.conf[i], self.conf[j])
+                            self.result += (self.conf[i]+self.conf[j])
             else:
                 return -1
 
